@@ -1,5 +1,6 @@
 // recebe o arquivo em uma variavel
 const fireplaces = require('./nasaFile.json'); 
+var fs = require('fs');
 
 //cria uma nova array para receber os dados filtrados
 var filtro = [];
@@ -16,8 +17,16 @@ for (let index = 0; index < fireplaces.length; index++) {
     }
 }
 
-export default filtro;
-console.log(filtro)
-console.log(filtro.length)
+//export default filtro;
 
+var json = JSON.stringify(filtro);
+
+
+fs.writeFile("./filtro.json", json, 'utf8', function (err) {
+    if (err) {
+        return console.log(err);
+    }
+
+    console.log("The file was saved!");
+}); 
 
