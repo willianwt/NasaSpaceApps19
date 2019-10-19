@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from "react-map-gl";
 import Pin from './pin';
+import filtro from './dataMap/filtro';
 
-const fireplaces = require('./nasaFile.json'); 
 
 const TOKEN = "pk.eyJ1IjoibGVvbmFyZG9tc2kiLCJhIjoiY2sxczhvb3I2MDFndDNubTdoYnh3azRhMiJ9.GCxPstmeD4nFSpNni_h79A"; 
 
-parseFloat(fireplaces.latitude);
-parseFloat(fireplaces.longitude);
 
 export default function App() {
   const [viewport, setViewport] = useState({
@@ -19,7 +17,7 @@ export default function App() {
   });
       
   
-  const [places] = useState(fireplaces);
+  const [places] = useState(filtro);
   
   return (
     <div>
